@@ -1,0 +1,20 @@
+
+To build CWM recovery here are the steps:
+========================================
+
+$ make -j4 otatools
+
+$ . buid/envsetup.sh
+
+$ lunch cm_a57-eng
+
+$ make -j4 recoveryimage
+
+=======================================
+
+If you flash the recovery you will face black screen.. dont panic , its because of brightness problem.. to enable brightness permanently| unpack your builded recovery and  place "qrdsys.sh" in /ramdisk/sbin/<here> & add the following lines in init.rc 
+
+"service qrdtrd /sbin/sh /sbin/qrdsys.sh
+    oneshot"
+
+repack and flash viola brightness is enabled :P
